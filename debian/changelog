@@ -1,5 +1,552 @@
-template-repository (1.0-1) unstable; urgency=medium
+libsdl3-mixer (3~git20250214~bc9c365+ds-1) experimental; urgency=medium
 
-  * Initial release
+  * New upstream snapshot
+  * d/copyright: Update
+  * d/control, d/copyright: Update upstream project URLs
+  * d/control: Require SDL 3.2.0 stable release
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- Simon McVittie <smcv@debian.org>  Mon, 17 Feb 2025 10:58:15 +0000
+
+libsdl3-mixer (3~git20250203~ebdd9cc+ds-1) experimental; urgency=medium
+
+  * New upstream snapshot
+  * d/copyright: Update
+  * d/watch*: Sync with SDL_image, SDL_ttf
+
+ -- Simon McVittie <smcv@debian.org>  Mon, 03 Feb 2025 13:59:38 +0000
+
+libsdl3-mixer (3~git20250123~723ad21+ds-1) experimental; urgency=medium
+
+  * New upstream snapshot
+
+ -- Simon McVittie <smcv@debian.org>  Fri, 24 Jan 2025 12:21:02 +0000
+
+libsdl3-mixer (3~git20250112~1bf7a79+ds-1) experimental; urgency=medium
+
+  * New upstream snapshot, corresponding to SDL3 3.1.10 prerelease
+  * d/salsa-ci.yml: Add
+
+ -- Simon McVittie <smcv@debian.org>  Sun, 19 Jan 2025 17:25:50 +0000
+
+libsdl3-mixer (3~git20250107~4870186+ds-1) experimental; urgency=medium
+
+  * New upstream snapshot, corresponding to SDL3 3.1.8 prerelease
+  * d/copyright: Update
+
+ -- Simon McVittie <smcv@debian.org>  Wed, 08 Jan 2025 16:27:16 +0000
+
+libsdl3-mixer (3~git20241102~5e2a705+ds-1) experimental; urgency=medium
+
+  * New upstream snapshot, corresponding to SDL3 3.1.6 prerelease
+  * d/rules, d/libsdl3-mixer0.symbols:
+    Music playback via an arbitrary external command is no longer supported
+
+ -- Simon McVittie <smcv@debian.org>  Mon, 04 Nov 2024 18:38:47 +0000
+
+libsdl3-mixer (3~git20240925~e32ba24+ds-1) experimental; urgency=medium
+
+  * New upstream snapshot, corresponding to SDL3 3.1.3 prerelease
+  * d/control: Build-depend on a contemporary SDL3
+  * d/p/Update-for-rename-of-SDL3-atomic-int-APIs.patch:
+    Drop patch, applied upstream
+
+ -- Simon McVittie <smcv@debian.org>  Fri, 04 Oct 2024 18:09:14 +0100
+
+libsdl3-mixer (3~git20240915~809804e+ds-1) experimental; urgency=medium
+
+  * New upstream snapshot
+    - d/control: (Build-)Depend on a corresponding libsdl3 snapshot
+  * d/p/Update-for-rename-of-SDL3-atomic-int-APIs.patch:
+    Add proposed patch for compatibility with latest SDL3
+  * d/tests: playwave now needs the SDL3_test library
+
+ -- Simon McVittie <smcv@debian.org>  Tue, 17 Sep 2024 21:15:26 +0100
+
+libsdl3-mixer (3~git20240828~36b1c88+ds-1) experimental; urgency=medium
+
+  * New upstream snapshot
+  * d/libsdl3-mixer0.symbols: Remove obsolete symbols
+  * d/rules: Update build option names
+  * Standards-Version: 4.7.0 (no changes required)
+
+ -- Simon McVittie <smcv@debian.org>  Tue, 03 Sep 2024 21:29:31 +0100
+
+libsdl3-mixer (3~git20240730~623ef30+ds-1) experimental; urgency=medium
+
+  * New upstream snapshot
+  * d/control: (Build-)Depend on a corresponding libsdl3 snapshot
+  * d/libsdl3-mixer0.symbols: Update
+  * Update list of man pages to install
+
+ -- Simon McVittie <smcv@debian.org>  Tue, 30 Jul 2024 17:20:20 +0100
+
+libsdl3-mixer (3~git20240508~c2fe2a6+ds-1) experimental; urgency=medium
+
+  * New upstream snapshot, corresponding to SDL 3.1.2
+    - Depend on a corresponding SDL3 prerelease
+  * d/rules: Build man pages if and only if -doc package is built
+
+ -- Simon McVittie <smcv@debian.org>  Thu, 20 Jun 2024 14:52:34 +0100
+
+libsdl3-mixer (3~git20240319~12fb85e+ds-1) experimental; urgency=medium
+
+  * New upstream snapshot
+  * Depend on a corresponding SDL3 prerelease
+  * d/libsdl3-mixer0.symbols: Update for upstream ABI breaks
+
+ -- Simon McVittie <smcv@debian.org>  Mon, 25 Mar 2024 18:43:56 +0000
+
+libsdl3-mixer (3~git20240121~3c8461d+ds-1) experimental; urgency=medium
+
+  * New upstream snapshot
+
+ -- Simon McVittie <smcv@debian.org>  Mon, 22 Jan 2024 12:35:01 +0000
+
+libsdl3-mixer (3~git20240115~9eae94f+ds-1) experimental; urgency=medium
+
+  * New upstream snapshot
+    - d/copyright: Exclude vendored minimp3, not used in Debian
+
+ -- Simon McVittie <smcv@debian.org>  Mon, 15 Jan 2024 18:07:37 +0000
+
+libsdl3-mixer (3~git20240101~de0f62a+ds-1) experimental; urgency=medium
+
+  * New upstream snapshot
+  * d/copyright: Update
+
+ -- Simon McVittie <smcv@debian.org>  Tue, 02 Jan 2024 17:32:49 +0000
+
+libsdl3-mixer (3~git20231205~1d30b08+ds-1) experimental; urgency=medium
+
+  * New upstream snapshot
+  * d/libsdl3-mixer0.symbols: Update
+
+ -- Simon McVittie <smcv@debian.org>  Thu, 07 Dec 2023 20:11:58 +0000
+
+libsdl3-mixer (3~git20230930~92f0574+ds-1) experimental; urgency=medium
+
+  * New upstream snapshot
+  * d/rules: Use package version instead of trying to get version from git
+
+ -- Simon McVittie <smcv@debian.org>  Mon, 02 Oct 2023 14:53:10 +0100
+
+libsdl3-mixer (3~git20230921~5ce3f92+ds-1) experimental; urgency=medium
+
+  * New upstream snapshot
+  * d/libsdl3-mixer0.symbols: Update
+  * Drop the only patch, applied upstream
+
+ -- Simon McVittie <smcv@debian.org>  Thu, 28 Sep 2023 17:25:31 +0100
+
+libsdl3-mixer (3~git20230913~d7e4f19+ds-1) experimental; urgency=medium
+
+  * New upstream snapshot
+  * d/control: Bump (build-)dependency on SDL3 for audio API changes
+  * d/rules: Make dependency checks strict.
+    When we enable a backend, we want the build to fail if it wasn't found.
+  * d/.gitignore: Disable an overzealous rule in /.gitignore
+  * d/p/build-Fix-detection-of-libvorbisfile.patch:
+    Add proposed patch to fix detection of libvorbisfile
+
+ -- Simon McVittie <smcv@debian.org>  Tue, 19 Sep 2023 20:00:57 +0100
+
+libsdl3-mixer (3~git20230904~dc93c43+ds-1) experimental; urgency=medium
+
+  * New upstream snapshot
+  * d/.gitignore: Also ignore d/libsdl3-mixer-doc/
+  * Depend on a corresponding version of SDL3 to follow API changes
+
+ -- Simon McVittie <smcv@debian.org>  Mon, 04 Sep 2023 22:17:38 +0100
+
+libsdl3-mixer (3~git20230810~ec99350+ds-1) experimental; urgency=medium
+
+  * New upstream snapshot
+  * d/.gitignore: Update for SDL3
+  * d/watch: Use a +ds suffix for the orig tarball.
+    To the best of my knowledge, everything we exclude is (meant to be)
+    Free Software, we just don't want to keep track of files that are
+    irrelevant to Debian (especially the vendored subprojects).
+  * d/gbp.conf: Stop filtering imported tarballs.
+    Please use uscan instead, which will automatically produce a filtered
+    +ds tarball based on the Files-Excluded in debian/copyright.
+
+ -- Simon McVittie <smcv@debian.org>  Thu, 10 Aug 2023 12:55:16 +0100
+
+libsdl3-mixer (3~git20230806~139b748+dfsg-1) experimental; urgency=medium
+
+  * New upstream snapshot
+  * d/watch: Include the truncated sha1 in the version number.
+    This makes it easier to keep track of which version we're packaging.
+  * d/libsdl3-mixer-dev.install: Update for changed header name
+  * d/libsdl3-mixer0.symbols: Update to reflect a removed symbol
+  * d/control: Require a matching libsdl3-dev.
+    The API is not stable, so we should only build combinations that are
+    believed to work together.
+
+ -- Simon McVittie <smcv@debian.org>  Mon, 07 Aug 2023 20:46:04 +0100
+
+libsdl3-mixer (3~git20230717+dfsg-1) experimental; urgency=medium
+
+  * Snapshot of new upstream major version with incompatible API and ABI
+  * This snapshot is only suitable for Debian experimental, and is provided
+    to facilitate early testing. The ABI is not expected to be stable
+    until the first stable release of SDL 3.x, which is expected to be
+    labelled as SDL 3.2.0.
+  * Initially enable a conservative set of codecs in the SDL3 branch:
+    Vorbis, Opus, FLAC, MP3 and WAV.
+  * Don't enable MIDI, module files (MOD/tracker music) or WavPack at this
+    stage. We can enable these if requested, but adding formats is a
+    compatible change and removing them is an incompatible change, so the
+    conservative approach is to start small and expand.
+    This also defers having to think about which implementation of MIDI
+    and which implementation of module files is the most suitable.
+
+ -- Simon McVittie <smcv@debian.org>  Tue, 18 Jul 2023 23:47:43 +0100
+
+libsdl2-mixer (2.6.3+dfsg-1) unstable; urgency=medium
+
+  [ Debian Janitor ]
+  * d/control: Remove version constraints unnecessary since Debian 10
+  * d/upstream/metadata: Add
+
+  [ Simon McVittie ]
+  * New upstream stable release
+    - Functionally equivalent to 2.6.2+dfsg-2
+    - Drop patch from 2.6.2+dfsg-2, applied upstream
+  * d/copyright: Update
+  * d/control: Update standards version to 4.6.2 (no changes needed)
+  * d/control: Remove version constraints unnecessary since Debian 11
+  * d/upstream/metadata: Add Repository field
+  * d/tests: Run Xvfb with -noreset to make the test more reliable.
+    See #981201.
+  * d/tests: Instruct xvfb-run to choose a server number automatically
+  * d/watch: Only watch for 2.x versions.
+    The upstream 'main' branch now targets SDL 3 (under development), and
+    should be packaged separately as a libsdl3-mixer source package.
+
+ -- Simon McVittie <smcv@debian.org>  Sat, 15 Jul 2023 18:05:33 +0100
+
+libsdl2-mixer (2.6.2+dfsg-2) unstable; urgency=medium
+
+  * d/watch: Update for Github website changes
+  * d/p/music_opus.c-Fixed-the-memory-leak-after-tags.patch:
+    Add minor memory leak fix from upstream release-2.6.x branch
+
+ -- Simon McVittie <smcv@debian.org>  Fri, 28 Oct 2022 18:13:41 +0100
+
+libsdl2-mixer (2.6.2+dfsg-1) unstable; urgency=medium
+
+  * New upstream release
+
+ -- Simon McVittie <smcv@debian.org>  Mon, 29 Aug 2022 21:05:51 +0100
+
+libsdl2-mixer (2.6.1+dfsg-1) unstable; urgency=medium
+
+  * New upstream release, functionally equivalent to 2.6.0+dfsg-2
+    - d/p/configure.ac-Make-sure-to-set-VERSION.patch:
+      Drop, applied upstream
+
+ -- Simon McVittie <smcv@debian.org>  Mon, 18 Jul 2022 14:25:38 +0100
+
+libsdl2-mixer (2.6.0+dfsg-2) unstable; urgency=medium
+
+  * d/p/configure.ac-Make-sure-to-set-VERSION.patch:
+    Add patch to ensure that Version is set in the .pc file.
+    This resolves FTBFS in dependent packages like wesnoth-1.16.
+  * d/tests: Verify that the pkg-config metadata has a suitable
+    version number
+
+ -- Simon McVittie <smcv@debian.org>  Tue, 12 Jul 2022 12:29:17 +0100
+
+libsdl2-mixer (2.6.0+dfsg-1) unstable; urgency=medium
+
+  * New upstream release
+  * d/libsdl2-mixer-2.0-0.symbols: Update
+  * d/libsdl2-mixer-2.0-0.symbols: Use stable release for new symbols.
+    We don't need to keep track of which specific prerelease introduced
+    each symbol now that there's a stable release.
+  * d/watch: Only look for stable releases
+  * d/rules: Enable full compiler hardening
+  * Switch branch for upload to unstable
+
+ -- Simon McVittie <smcv@debian.org>  Sat, 09 Jul 2022 14:55:01 +0100
+
+libsdl2-mixer (2.5.2+dfsg-1) experimental; urgency=medium
+
+  * New upstream prerelease
+  * d/watch: Don't download Windows binaries, etc.
+  * d/watch: Accept prereleases for experimental branch
+  * Add myself to Uploaders
+  * Drop all patches, included in the new upstream prerelease
+  * d/libsdl2-mixer-dev.install: Install the new CMake metadata
+  * d/tests: Exercise a CMake build
+
+ -- Simon McVittie <smcv@debian.org>  Fri, 17 Jun 2022 10:56:20 +0100
+
+libsdl2-mixer (2.5.1+dfsg-2) experimental; urgency=medium
+
+  * d/patches: Add post-release-candidate fixes from upstream
+  * Standards-Version: 4.6.1 (no changes required)
+  * d/.gitignore: Add
+
+ -- Simon McVittie <smcv@debian.org>  Tue, 31 May 2022 14:39:47 +0100
+
+libsdl2-mixer (2.5.1+dfsg-1) experimental; urgency=medium
+
+  * Team upload
+  * New upstream prerelease
+  * d/watch: Download new releases from Github
+  * d/watch: Don't download prereleases by default
+  * d/copyright: Remove exclusion patterns that are no longer needed
+
+ -- Simon McVittie <smcv@debian.org>  Thu, 26 May 2022 12:40:57 +0100
+
+libsdl2-mixer (2.5.0~git20220523+g8805ff3+dfsg-1) experimental; urgency=medium
+
+  * Team upload
+  * New upstream git snapshot
+  * d/copyright: Update
+  * d/rules: Update configure options
+  * d/libsdl2-mixer-2.0-0.symbols: Update
+
+ -- Simon McVittie <smcv@debian.org>  Tue, 24 May 2022 18:12:01 +0100
+
+libsdl2-mixer (2.5.0~git20220512.g4366e74+dfsg-1-1) experimental; urgency=medium
+
+  * Team upload
+  * New upstream git snapshot
+
+ -- Simon McVittie <smcv@debian.org>  Mon, 16 May 2022 14:23:53 +0100
+
+libsdl2-mixer (2.5.0~git20220509.g5c43733+dfsg-1) experimental; urgency=medium
+
+  * Team upload
+  * New upstream git snapshot
+
+ -- Simon McVittie <smcv@debian.org>  Mon, 09 May 2022 14:11:57 +0100
+
+libsdl2-mixer (2.0.5~20220126.g6845d9f+dfsg-1) experimental; urgency=medium
+
+  * Team upload
+  * New upstream snapshot
+  * Add -dev dependencies mentioned in .pc file
+
+ -- Simon McVittie <smcv@debian.org>  Wed, 02 Mar 2022 20:39:57 +0000
+
+libsdl2-mixer (2.0.5~20220103.g3f5a050+dfsg-1) experimental; urgency=medium
+
+  * Team upload
+  * New upstream snapshot
+  * d/copyright: Update
+  * d/rules: Don't explicitly specify SHLIBVER.
+    Specifying a version for dh_makeshlibs, and remembering to increment it
+    every time new ABI is added, is error-prone. In debhelper compat level
+    12 and up, the default is to generate a conservative dependency using
+    dh_makeshlibs -VUpstream-Version. The symbols file (which is more
+    precise) also takes precedence over the shlibs version.
+
+ -- Simon McVittie <smcv@debian.org>  Fri, 07 Jan 2022 14:14:05 +0000
+
+libsdl2-mixer (2.0.5~20211214.gffd0589+dfsg-1) experimental; urgency=medium
+
+  * Team upload
+  * Branch for experimental
+  * New upstream snapshot
+    - Drop patches, applied upstream
+    - d/copyright: Update
+  * Add a .symbols file
+  * d/copyright, d/gbp.conf: Filter more generated/vendored files.
+    If we're repacking the tarball *anyway*, we might as well exclude these
+    too. They'll be restored by dh_autoreconf.
+  * Escape CPPFLAGS properly, so -fvisibility=hidden gets enabled.
+    We had the wrong number of layers of escaping here, resulting in a
+    compiler warning which indirectly disabled detection of
+    -fvisibility=hidden.
+  * Bump debhelper compat level from 12 to 13
+    + debian/rules: Drop --fail-missing argument to dh_missing, which is
+      now the default.
+  * Re-export upstream signing key without extra signatures.
+  * Drop transition for old debug package migration.
+    The legacy -dbg package was replaced by -dbgsym in Debian 10, and we
+    don't support skipping a release when upgrading.
+  * Standards-Version: 4.6.0 (no changes required)
+
+ -- Simon McVittie <smcv@debian.org>  Tue, 14 Dec 2021 20:36:45 +0000
+
+libsdl2-mixer (2.0.4+dfsg1-4) unstable; urgency=medium
+
+  * Team upload
+  * Fix FTBFS with autoconf 2.71 (Closes: #993157)
+
+ -- Simon McVittie <smcv@debian.org>  Mon, 06 Sep 2021 10:15:13 +0100
+
+libsdl2-mixer (2.0.4+dfsg1-3) unstable; urgency=medium
+
+  * Team upload.
+
+  [ Simon McVittie ]
+  * Add a superficial autopkgtest for libsdl2-mixer-dev (Closes: #941428)
+  * d/rules: Don't explicitly use --as-needed linker option.
+    It's the default with bullseye toolchains.
+
+  [ Felix Geyer ]
+  * Switch to debhelper compat level v12
+
+  [ Debian Janitor ]
+  * Use secure copyright file specification URI.
+  * debian/copyright: use spaces rather than tabs to start continuation
+    lines.
+  * Rely on pre-initialized dpkg-architecture variables.
+
+  [ Fabian Greffrath ]
+  * Backport a patch from upstream that fixes a use-after-free in
+    music_fluidsynth.c, which would cause a segmentation fault with
+    libfluidsynth 2.1.6 whenever a song was stopped.
+
+ -- Fabian Greffrath <fabian@debian.org>  Fri, 22 Jan 2021 10:59:38 +0100
+
+libsdl2-mixer (2.0.4+dfsg1-2) unstable; urgency=medium
+
+  * Team upload.
+  * Recommend a recent enough timgm6mb-soundfont package or an
+    alternative provider of sf3-soundfont-gm and use the default
+    soundfont throughout the package.
+
+ -- Fabian Greffrath <fabian@debian.org>  Sun, 04 Aug 2019 13:48:23 +0200
+
+libsdl2-mixer (2.0.4+dfsg1-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream version.
+  * Verify signature of upstream tarball.
+  * Switch from libmad to libmpg123 to avoid potential GPL licensing issues
+    of libsdl2-mixer users.
+  * Enable support for the Opus codec.
+
+ -- Felix Geyer <fgeyer@debian.org>  Sun, 03 Feb 2019 12:40:50 +0100
+
+libsdl2-mixer (2.0.2+dfsg1-3) unstable; urgency=medium
+
+  * Bump Policy Standards-Version to 4.2.1 (no changes needed)
+  * Switch to debhelper compat level v11
+  * d/watch:
+    - Set to version=4
+    - Use https for URL
+  * d/control:
+    - Use https for Homepage URL
+    - Set "Rules-Requires-Root: no"
+    - Update Vcs-* URLs
+
+ -- Manuel A. Fernandez Montecelo <mafm@debian.org>  Fri, 19 Oct 2018 23:47:51 +0200
+
+libsdl2-mixer (2.0.2+dfsg1-2) unstable; urgency=medium
+
+  * Team upload.
+  * Fix the shlib symlink again, thanks again Andreas Beckmann
+    (Closes: #877270).
+
+ -- Fabian Greffrath <fabian@debian.org>  Thu, 09 Nov 2017 17:19:39 +0100
+
+libsdl2-mixer (2.0.2+dfsg1-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream version 2.0.2+dfsg1.
+  * Bump Build-Depends to libsdl2-dev (>= 2.0.7) as per configure.in
+    requirements.
+  * Remove bug-715461-soundfont_paths.patch, applied upstream.
+  * Bump SHLIBVER to 2.0.2 as INTERFACE_AGE has been reset in configure.in.
+  * Call aclocal before dh_autoreconf to fix FTBFS.
+  * Move the dbgsym-migration parameter to the dh_strip call.
+  * Add support for the fluidr3mono-gm-soundfont package:
+    + Add fluidr3mono-gm-soundfont to the list of alternative recommends.
+    + Add Breaks: libfluidsynth1 (<< 1.1.7~) to make sure we have a
+      version of that library available that supports the SF3 soundfont
+      format.
+    + Add the soundfont file to the MIX_INIT_SOUNDFONT_PATHS macro.
+
+ -- Fabian Greffrath <fabian@debian.org>  Thu, 09 Nov 2017 17:00:37 +0100
+
+libsdl2-mixer (2.0.1+dfsg1-3) unstable; urgency=medium
+
+  * Update Recommends musescore-soundfont-gm -> timgm6mb-soundfont, thanks
+    Thorsten Glaser (Closes: #870793)
+
+ -- Manuel A. Fernandez Montecelo <mafm@debian.org>  Sat, 05 Aug 2017 13:48:50 +0200
+
+libsdl2-mixer (2.0.1+dfsg1-2) unstable; urgency=medium
+
+  * Bump Policy Standards-Version to 4.0.0 (no changes needed)
+  * Switch to debhelper compat level v10
+    - dh flags --parallel are not needed
+    - autoreconf is invoked by default
+      * disable autoheader (invoked automatically by autoreconf),
+        necessary in order to use debhelper compat level v10 without
+        overriding dh-autoreconf calls
+  * Use automatic dbgsym packages, drop -dbg
+  * Update Vcs-* URLs
+
+ -- Manuel A. Fernandez Montecelo <mafm@debian.org>  Sat, 29 Jul 2017 23:18:31 +0200
+
+libsdl2-mixer (2.0.1+dfsg1-1) unstable; urgency=medium
+
+  * New upstream release
+  * d/examples/Makefile: link against SDL2_mixer.  Thanks Riku Saikkonen.
+    (Closes: #774717)
+  * d/patches:
+    - Remove fix-750706-upstream-8ef083375857.patch, backported from upstream
+
+ -- Manuel A. Fernandez Montecelo <mafm@debian.org>  Tue, 26 Jan 2016 16:54:51 +0000
+
+libsdl2-mixer (2.0.0+dfsg1-5) unstable; urgency=medium
+
+  * Add patch fix-750706-upstream-8ef083375857.patch backported from
+    upstream to fix playing speed with timidity backend.  Thanks Sylvain
+    Beucler (Closes: #750706)
+
+ -- Manuel A. Fernandez Montecelo <mafm@debian.org>  Sat, 25 Oct 2014 11:07:28 +0100
+
+libsdl2-mixer (2.0.0+dfsg1-4) unstable; urgency=medium
+
+  * Bump Policy Standards-Version to 3.9.6 (no changes needed)
+  * Copy patch bug-715461-soundfont_paths.patch from sdl-mixer1.2 to use
+    better quality sounds than those of freepats.  Thanks Fabian Greffrath
+    (Closes: #766019)
+
+ -- Manuel A. Fernandez Montecelo <mafm@debian.org>  Sat, 25 Oct 2014 00:45:21 +0100
+
+libsdl2-mixer (2.0.0+dfsg1-3) unstable; urgency=low
+
+  * Bump Policy Standards-Version to 3.9.5 (no changes needed)
+  * Do not call dh_autoreconf with autogen.sh as parameter, and use
+    instead other methods to force the update of ltmain.sh and
+    config.{sub,guess} files, needed when having new architectures such as
+    arm64 (Closes: #727435)
+
+ -- Manuel A. Fernandez Montecelo <mafm@debian.org>  Sun, 09 Mar 2014 11:24:29 +0000
+
+libsdl2-mixer (2.0.0+dfsg1-2) unstable; urgency=low
+
+  * Issue extra -I/usr/include/libmodplug during compilation to avoid a
+    FTBFS due to recent changes in libmodplug (Closes: #725564)
+  * Build-Depends on pkg-config
+  * Clean-up of debian/rules
+
+ -- Manuel A. Fernandez Montecelo <mafm@debian.org>  Sat, 19 Oct 2013 16:30:18 +0100
+
+libsdl2-mixer (2.0.0+dfsg1-1) unstable; urgency=low
+
+  * New upstream release
+  * Filter upstream tarball from binaries and unneeded cruft
+    - Remove from debian/copyright files that are now filtered out when creating
+      the orig.tar
+  * Remove patches carried from version sdl-mixer1.2, all of them were applied
+    upstream (4) or had been backported (1)
+  * Recommend MIDI patch set "freepats"
+
+ -- Manuel A. Fernandez Montecelo <mafm@debian.org>  Tue, 13 Aug 2013 20:03:24 +0100
+
+libsdl2-mixer (2.0.0~rc1-1) unstable; urgency=low
+
+  * Initial release. (Closes: #711570)
+
+ -- Manuel A. Fernandez Montecelo <mafm@debian.org>  Sat, 08 Jun 2013 01:16:42 +0100

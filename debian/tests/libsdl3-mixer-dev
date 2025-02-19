@@ -1,0 +1,62 @@
+#!/bin/sh
+# Copyright 2019 Collabora Ltd.
+# SPDX-License-Identifier: Zlib
+# (see "zlib/libpng" in debian/copyright)
+
+set -eux
+
+if [ -n "${AUTOPKGTEST_ARTIFACTS-}" ]; then
+	WORKDIR="$AUTOPKGTEST_ARTIFACTS"
+else
+	WORKDIR="$(mktemp -d)"
+	trap 'cd /; rm -fr "$WORKDIR"' 0 INT QUIT ABRT PIPE TERM
+fi
+
+if [ -n "${DEB_HOST_GNU_TYPE:-}" ]; then
+    CROSS_COMPILE="$DEB_HOST_GNU_TYPE-"
+else
+    CROSS_COMPILE=
+fi
+
+# For a manual test, set this to a non-empty value
+if [ -z "${TEST_REALLY_PLAY_AUDIO-}" ]; then
+    set +x
+    echo "Silencing output: run with TEST_REALLY_PLAY_AUDIO=yes to hear audio"
+    set -x
+    export SDL_AUDIO_DRIVER=dummy
+fi
+
+cp examples/playmus.c "$WORKDIR"
+cp examples/playwave.c "$WORKDIR"
+mkdir "$WORKDIR/cmake"
+cp ./cmake/test/CMakeLists.txt "$WORKDIR/cmake"
+cp ./cmake/test/main.c "$WORKDIR/cmake"
+mkdir "$WORKDIR/cmake-pkg-config"
+cp cmake/test/main.c "$WORKDIR/cmake-pkg-config"
+cp debian/tests/cmake-pkg-config/CMakeLists.txt "$WORKDIR/cmake-pkg-config"
+
+cd "$WORKDIR"
+
+# Deliberately word-splitting pkg-config's output:
+# shellcheck disable=SC2046
+"${CROSS_COMPILE}gcc" -oplaymus playmus.c $("${CROSS_COMPILE}pkgconf" --cflags --libs 'sdl3-mixer >= 2.6.0')
+# shellcheck disable=SC2046
+"${CROSS_COMPILE}gcc" -oplaywave playwave.c $("${CROSS_COMPILE}pkgconf" --cflags --libs 'sdl3-mixer >= 2.6.0') -lSDL3_test
+
+set -- xvfb-run -a -s '-screen 0 1280x1024x24 -noreset'
+
+# This audio file is shipped in the alsa-utils package
+"$@" ./playmus /usr/share/sounds/alsa/Front_Center.wav
+"$@" ./playwave /usr/share/sounds/alsa/Front_Center.wav
+
+if [ -z "${DEB_HOST_GNU_TYPE:-}" ]; then
+    mkdir cmake/_build
+    ( cd cmake/_build; cmake -GNinja -DTEST_SHARED=ON -DTEST_STATIC=OFF .. )
+    ninja -C cmake/_build
+    ./cmake/_build/main_shared
+
+    mkdir cmake-pkg-config/_build
+    ( cd cmake-pkg-config/_build; cmake .. )
+    make -C cmake-pkg-config/_build
+    ./cmake-pkg-config/_build/main
+fi

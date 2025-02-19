@@ -1,4 +1,99 @@
 #!/usr/bin/make -f
 
+#export DH_VERBOSE=1
+
+export DEB_BUILD_MAINT_OPTIONS := hardening=+all
+
+export DEB_CFLAGS_MAINT_APPEND  := -pipe -Wall
+
+# TODO: We will need this if we re-enable MIDI playback:
+# bug #715461, provide default soundfont paths
+#export DEB_CPPFLAGS_MAINT_APPEND := -DMIX_INIT_SOUNDFONT_PATHS="\"/usr/share/sounds/sf3/default-GM.sf3\""
+
+include /usr/share/dpkg/default.mk
+
+built_binaries := $(shell dh_listpackages)
+
+ifneq (,$(filter-out experimental UNRELEASED,$(DEB_DISTRIBUTION)))
+$(error This version of SDL_image is not yet suitable for testing/unstable)
+endif
+
+confflags :=
+confflags += -DSDLMIXER_DEPS_SHARED=OFF
+confflags += -DSDLMIXER_STRICT=ON
+confflags += -DSDLMIXER_VENDORED=OFF
+confflags += -DSDLMIXER_WERROR=OFF
+
+ifneq ($(filter nocheck,$(DEB_BUILD_OPTIONS))$(filter %-tests,$(built_binaries)),nocheck)
+confflags += -DSDLMIXER_TESTS=ON
+endif
+
+ifneq ($(filter %-doc,$(built_binaries)),)
+confflags += -DSDLMIXER_INSTALL_MAN=ON
+endif
+
+ifneq ($(filter %-tests,$(built_binaries)),)
+confflags += -DSDLMIXER_SAMPLES=ON
+confflags += -DSDLMIXER_SAMPLES_INSTALL=ON
+confflags += -DSDLMIXER_TESTS_INSTALL=ON
+endif
+
+confflags += -DSDLMIXER_FLAC=ON
+confflags += -DSDLMIXER_FLAC_LIBFLAC=ON
+confflags += -DSDLMIXER_FLAC_DRFLAC=OFF
+
+# gme has caused security issues in the past, so the conservative approach
+# is to leave it switched off until someone needs it
+confflags += -DSDLMIXER_GME=OFF
+
+# Enabling a previously disabled format is more compatible than disabling a
+# previously enabled format, so initially turn off MIDI for the SDL3 branch.
+confflags += -DSDLMIXER_MIDI=OFF
+# Historically we enabled both fluidsynth and timidity by default, but it's
+# not clear that it was useful to do so.
+confflags += -DSDLMIXER_MIDI_FLUIDSYNTH=OFF
+confflags += -DSDLMIXER_MIDI_NATIVE=OFF
+confflags += -DSDLMIXER_MIDI_TIMIDITY=OFF
+
+# Enabling a previously disabled format is more compatible than disabling a
+# previously enabled format, so initially turn off soundtracker playback
+# for the SDL3 branch.
+confflags += -DSDLMIXER_MOD=OFF
+confflags += -DSDLMIXER_MOD_MODPLUG=OFF
+confflags += -DSDLMIXER_MOD_XMP=OFF
+confflags += -DSDLMIXER_MOD_XMP_LITE=OFF
+
+confflags += -DSDLMIXER_MP3=ON
+confflags += -DSDLMIXER_MP3_MPG123=ON
+confflags += -DSDLMIXER_MP3_MINIMP3=OFF
+
+confflags += -DSDLMIXER_OPUS=ON
+confflags += -DSDLMIXER_SNDFILE=OFF
+confflags += -DSDLMIXER_VORBIS=VORBISFILE
+confflags += -DSDLMIXER_WAVE=ON
+
+# Enabling a previously disabled format is more compatible than disabling a
+# previously enabled format, so initially turn off wavpack for the SDL3
+# branch.
+confflags += -DSDLMIXER_WAVPACK=OFF
+
 %:
-	dh $@
+	dh $@ --buildsystem=cmake
+
+override_dh_auto_configure:
+	echo "$(DEB_VERSION_UPSTREAM_REVISION)" > VERSION.txt
+	dh_auto_configure -- $(confflags)
+
+override_dh_installchangelogs:
+	dh_installchangelogs -- CHANGES.txt
+
+override_dh_compress:
+	dh_compress -Xplaymus.c -Xplaywave.c
+
+# debhelper >= 13.4 makes all of /usr/libexec executable, which is not
+# quite right for installed-tests
+override_dh_fixperms:
+	dh_fixperms -Xusr/libexec/installed-tests
+ifneq ($(filter %-tests,$(built_binaries)),)
+	chmod --recursive --changes a+rX,u+w,og-w debian/*-tests/usr/libexec/installed-tests
+endif
