@@ -1,0 +1,2 @@
+usr/bin/playmus usr/libexec/installed-tests/SDL3_mixer
+usr/bin/playwave usr/libexec/installed-tests/SDL3_mixer

@@ -1,0 +1,4 @@
+usr/include/SDL3_mixer/SDL_mixer.h
+usr/lib/*/cmake/SDL3_mixer
+usr/lib/*/libSDL3_mixer.so
+usr/lib/*/pkgconfig/sdl3-mixer.pc

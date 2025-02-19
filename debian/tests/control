@@ -1,0 +1,11 @@
+Tests: libsdl3-mixer-dev
+Restrictions: allow-stderr, superficial
+Depends:
+ alsa-utils,
+ build-essential,
+ cmake,
+ libsdl3-mixer-dev,
+ ninja-build,
+ pkgconf,
+ xauth,
+ xvfb,

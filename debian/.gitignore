@@ -1,0 +1,13 @@
+!build*
+/*.debhelper.log
+/*.substvars
+/.debhelper/
+/autoreconf.after
+/autoreconf.before
+/debhelper-build-stamp
+/files
+/libsdl3-mixer-dev/
+/libsdl3-mixer-doc/
+/libsdl3-mixer-tests/
+/libsdl3-mixer0/
+/tmp/
